@@ -4,6 +4,7 @@ import {faBuilding, faUserGroup, faCalendarDay, faChevronLeft, faComment, faArro
 import {HomeContainer} from './styles'
 import { ProfileUser } from '../../components/ProfileUser'
 import { Search } from '../../components/Search'
+import { Posts } from '../../components/Posts'
 
 export function Home() {
     return (
@@ -11,6 +12,7 @@ export function Home() {
             <Header />
             <ProfileUser />
             <Search />
+            <Posts />
         </HomeContainer>
     )
 }
