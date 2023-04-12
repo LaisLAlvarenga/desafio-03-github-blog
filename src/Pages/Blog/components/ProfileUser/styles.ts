@@ -2,30 +2,39 @@ import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
     background-color: #0B1B2B;
+
     max-width: 864px; 
     margin: 0 auto; 
     height: 212px;
 
     margin-top: -90px; /* calc(296px - (212px / 2)) */
-    border-radius: 10px;
-    padding: 0 40px;
+    border-radius: 0.625rem;
+    padding: 2rem 2.5rem;
 
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 2rem;
+
+    img {
+        width: 9.25rem;
+        border-radius: 8px;
+    }
 `
 
 export const UserInfo = styled.div`
+    flex: 1;
+    
     div {
         display: flex;
         align-items: center;
         justify-content: space-between;        
 
         strong {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
+
             color: ${props => props.theme.title};
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
         }
 
         a {
@@ -42,13 +51,15 @@ export const UserInfo = styled.div`
     }
 `
 
-export const SocialMedia = styled.div`
+export const SocialMedia = styled.section`
+    display: flex;
+    gap: 24px;
+
+    margin-top: 24px;
 
     span {
-        margin-top: 24px;
-        
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 0.5rem;
     }
 `

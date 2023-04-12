@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
     max-width: 864px; 
     margin: 0 auto;
 

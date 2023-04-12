@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const PostsContainer = styled.div`
+export const PostListContainer = styled.div`
     max-width: 864px; 
     margin: 0 auto;
     
@@ -8,13 +9,25 @@ export const PostsContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
 
-    margin-bottom: 234px;
+    /* margin-bottom: 234px; */
+    margin-bottom: 20px;
 `
 
-export const Post = styled.a`
+export const PostCard = styled(Link)`
+    text-decoration: none;
     background: #112131;
     border-radius: 10px;
     padding: 32px 32px;
+
+    border: 2px solid transparent;
+    cursor: pointer;
+
+    transition: all .5s ;
+    &:hover {
+        border: 2px solid #3A536B;
+        transform: rotateX(0.50rad);
+        transform: rotateY(0.50rad);
+    }
 
     div {
         display: flex;
@@ -38,12 +51,11 @@ export const Post = styled.a`
         color: #AFC2D4;
         margin-top: 20px;
         max-width: 352px;
-    }
-
-    border: 2px solid transparent;
-    cursor: pointer;
-
-    &:hover {
-        border: 2px solid #3A536B;
+        
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
     }
 `
