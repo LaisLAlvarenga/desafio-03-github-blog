@@ -13,9 +13,10 @@ interface PostProps {
     title: string;
     created_at: string;
     comments: number;
+    html_url: string;
     user: {
         login: string;
-    }
+    };
 }
 
 export function Post() {
@@ -23,13 +24,16 @@ export function Post() {
 
     const {id} = useParams();
 
-    useEffect(() => {
-        axios.get(`https://api.github.com/repos/rocketseat-education/reactjs-github-blog-challenge/issues/${id}`).then(response => {
+    async function loadPosts() {
+        await axios.get(`https://api.github.com/repos/rocketseat-education/reactjs-github-blog-challenge/issues/${id}`).then(response => {
             return(                
-                console.log(response.data),
                 setPost(response.data)
             )
-        })
+        })       
+    }
+
+    useEffect(() => {
+        loadPosts()
     }, [])
 
     return(
@@ -42,7 +46,7 @@ export function Post() {
                             <FontAwesomeIcon icon={faChevronLeft} />
                             Voltar
                         </a>
-                        <a href='#'>
+                        <a href={post.html_url} target='_blank'>
                             Ver no Github
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                         </a>
@@ -52,7 +56,7 @@ export function Post() {
                     <Info>                    
                         <span>
                             <FontAwesomeIcon icon={faCalendarDay} />
-                            {post.user.login}
+                            {post?.user?.login}
                         </span>
                         <span>
                             <FontAwesomeIcon icon={faCalendarDay} />
